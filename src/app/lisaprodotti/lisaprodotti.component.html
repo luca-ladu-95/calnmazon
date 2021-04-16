@@ -1,0 +1,39 @@
+<div class="container">
+<div>
+
+    <div class="row">
+        <div class="col-12">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Descrizione</th>
+                <th scope="col">Prezzo</th>
+                <th scope="col">Scrc</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Azione</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let prodotto of listaProdotti">
+                <th scope="row">1</th>
+                <td>{{prodotto.nome}}</td>
+                <td>{{prodotto.descrizione}}</td>
+                <td>{{prodotto.prezzo}}</td>
+                <td>{{prodotto.src | slice:1:15}}</td>
+                <td>{{prodotto.categoria}}</td>
+                <td>
+                <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
+                <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                
+                </td>
+              </tr>
+            
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+</div>
+</div>
