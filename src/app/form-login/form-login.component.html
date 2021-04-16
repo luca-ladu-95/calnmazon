@@ -1,5 +1,11 @@
+
 <div class="container-fluid">
-    <div class="row align-items-center" style="height: 100vh;">
+  
+
+    
+  
+  <img src="assets/favicon.png" class="mx-auto d-block img mt-2" alt="Responsive image">
+    <div class="row align-items-center" style="height: 80vh;">
       <div class="col-6 mx-auto">
         <form [formGroup]='mioForm' (ngSubmit)='login()'>
           <div class="form-group">
@@ -15,6 +21,10 @@
             {{esito.msg}}
           </div>
           <button type="submit" class="btn btn-primary">Login</button>
+          
+          <a href="/registrazione" class="btn btn-warning ml-3">Registrati</a>
+          
+
         </form>
       </div>
     </div>

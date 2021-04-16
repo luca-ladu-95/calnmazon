@@ -24,6 +24,12 @@ export class UserServicesService {
 
   }
 
+  public sinUp(user:any): Observable<User>{
+    return this.http.post<User>('http://localhost:8000/api/signup',user).pipe(
+      tap(user => this.loggedUser = user)
+    )
+  }
+
 
 
 

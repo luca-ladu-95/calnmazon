@@ -30,7 +30,7 @@ export class AppComponent {
     getUrl():boolean{
 
       this.href = this.router.url;
-      if(this.href == '/' || this.href == '/login')
+      if(this.href == '/' || this.href == '/login' || this.href=='/registrazione')
       return true
       else return false
 

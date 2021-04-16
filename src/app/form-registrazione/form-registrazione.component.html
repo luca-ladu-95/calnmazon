@@ -1,1 +1,85 @@
-<p>form-registrazione works!</p>
+<div class="container m-5">
+    <h1>Registrazione:</h1><br>
+<form novalidate [formGroup]="signForm" (ngSubmit)="registrazione()">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="nome">Nome</label>
+          <input [ngClass]="{'text-danger border-danger': nome.touched && nome.invalid}" type="text" formControlName="nome" class="form-control" id="nome" placeholder="Nome">
+          <small class="text-danger" *ngIf="nome.touched && nome.invalid">Il nome è obbligatorio</small>
+    </div>
+ 
+        <div class="form-group col-md-6">
+          <label for="cognome">Cognome</label>
+          <input [ngClass]="{'text-danger border-danger': cognome.touched && cognome.invalid}" type="text" formControlName='cognome' class="form-control" id="cognome" placeholder="Cognome">
+          <small class="text-danger" *ngIf="cognome.touched && cognome.invalid">Il cognome è obbligatorio</small>
+        </div>
+      </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="email">Email</label>
+        <input [ngClass]="{'text-danger border-danger': email.touched && email.invalid}" type="email" formControlName='email' class="form-control" id="email" placeholder="Email">
+        <small class="text-danger" *ngIf="email.touched && email.invalid">l'email è obbligatoria</small>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="inputPassword4">Password</label>
+        <input type="password" [ngClass]="{'text-danger border-danger': password.touched && password.invalid}" formControlName='password' class="form-control" id="inputPassword4" placeholder="Password">
+        <small class="text-danger" *ngIf="password.touched && password.invalid">La password è obbligatoria</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="via">Via</label>
+      <input type="text"  [ngClass]="{'text-danger border-danger': via.touched && via.invalid}" formControlName='via' class="form-control" id="via" placeholder="Bonarroti 4">
+      <small class="text-danger" *ngIf="via.touched && via.invalid">La via è obbligatoria</small>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="citta">Città</label>
+        <input type="text" [ngClass]="{'text-danger border-danger': citta.touched && citta.invalid}" formControlName='citta' class="form-control" id="citta" placeholder="Roma">
+        <small class="text-danger" *ngIf="citta.touched && citta.invalid">La citta è obbligatoria</small>
+
+      </div>
+
+      <div class="form-group col-md-2">
+        <label for="cap">Cap</label>
+        <input type="number" [ngClass]="{'text-danger border-danger': cap.touched && cap.invalid}" formControlName='cap' class="form-control" id="cap" placeholder="70033">
+        <small class="text-danger" *ngIf="cap.touched && cap.invalid">Il cap è obbligatorio</small>
+      </div>
+    </div>
+    <div class="form-group">
+    
+        
+        <div class="form-group">
+            <label for="numCarta">Numero Carta</label>
+            <input type="number"  [ngClass]="{'text-danger border-danger': numCarta.touched && numCarta.invalid}" formControlName='numCarta' class="form-control" id="numCarta" placeholder="32414241234">
+            <small class="text-danger" *ngIf="numCarta.touched && numCarta.invalid">Il numero carta è obbligatorio</small>
+
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-1">
+              <label for="codice">CVV</label>
+              <input type="number" [ngClass]="{'text-danger border-danger': codice.touched && codice.invalid}" formControlName='codice' class="form-control" id="codice" placeholder="123">
+              <small class="text-danger" *ngIf="codice.touched && codice.invalid">Il CVV è obbligatorio</small>
+
+            </div>
+            <div class="form-group col-md-1">
+              <label for="meseScadenza">Mese </label>
+              <input type="number" [ngClass]="{'text-danger border-danger': meseScadenza.touched && meseScadenza.invalid}" formControlName='meseScadenza' class="form-control" id="meseScadenza" placeholder="01">
+              <small class="text-danger" *ngIf="meseScadenza.touched && meseScadenza.invalid">Il mese di scadenza è obbligatorio</small>
+            </div>
+            <div class="form-group col-md-1">
+                <label for="annoScadenza">Anno</label>
+                <input type="number" [ngClass]="{'text-danger border-danger': annoScadenza.touched && annoScadenza.invalid}" formControlName='annoScadenza' class="form-control" id="annoScadenza" placeholder="2021">
+                <small class="text-danger" *ngIf="annoScadenza.touched && annoScadenza.invalid">L' anno di scadenza è obbligatorio</small>
+              </div>
+          </div>
+      </div>
+      <div class="alert" *ngIf="!!esito" [class]="esito.type">
+        {{esito.msg}}
+      </div>
+    <button [disabled] ="signForm.invalid" type="submit" class="btn btn-success">Registrati</button>
+  </form>
+</div>

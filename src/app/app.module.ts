@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { FormRegistrazioneComponent } from './form-registrazione/form-registrazione.component';
 import { HomeadminComponent } from './homeadmin/homeadmin.component';
 import { LisaprodottiComponent } from './lisaprodotti/lisaprodotti.component';
+import { FormnuovoprodottoComponent } from './formnuovoprodotto/formnuovoprodotto.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { LisaprodottiComponent } from './lisaprodotti/lisaprodotti.component';
     HomeComponent,
     FormRegistrazioneComponent,
     HomeadminComponent,
-    LisaprodottiComponent
+    LisaprodottiComponent,
+    FormnuovoprodottoComponent
   ],
   imports: [
     BrowserModule,
