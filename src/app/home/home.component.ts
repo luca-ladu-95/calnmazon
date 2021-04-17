@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoriaServiceService } from '../categoria-service.service';
+import { Product } from '../model/product';
+import { ProductServicesService } from '../product-services.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  prodotti : Product[]
+  constructor(private servizioProdotti :ProductServicesService,private servizioCategoria :CategoriaServiceService) { }
 
   ngOnInit(): void {
+
+    //Recupero la lista prodotti dal servizio
+    this.servizioProdotti.getProdotti()
+
+    this.servizioProdotti.prodottiUpd.subscribe(()=>{
+      this.prodotti = this.servizioProdotti.prodotti;
+    })
   }
 
 }

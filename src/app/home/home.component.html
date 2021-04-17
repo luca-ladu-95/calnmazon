@@ -1,1 +1,25 @@
-<p>home works!</p>
+<div class="container" style="height: 80vh;">
+
+ 
+
+
+        <div class="row justify-content-center">
+            <div class="card m-2 col-3 p-3" *ngFor="let l of prodotti" >
+                <img class="card-img-top" src="{{l.src}}" style="height: 25vh;" alt="Card image cap">
+                <div class="card-body corpo">
+                    <h5 class="card-title">{{l.nome}}</h5>
+                    <p class="card-text">{{l.descrizione}}</p>
+                </div>
+                <div class="card-body">
+                    <h5 href="#" class="card-link">{{l.prezzo}} €</h5>
+                    <button class="btn btn-warning align-items-flex-end ">Aggiungi al carrello</button>
+                </div>
+            </div>
+        </div>
+    
+
+
+
+
+</div>
+
