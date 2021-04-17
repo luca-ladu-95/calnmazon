@@ -12,6 +12,7 @@ export class ProductServicesService {
 
   prodotti:Product[];
   prodottiUpd = new Subject();
+  
 
 
   constructor(private http: HttpClient) { }
@@ -28,7 +29,7 @@ export class ProductServicesService {
   }
 
 
-  eliminaProdotto(index){
+  public eliminaProdotto(index){
   
     return this.http.delete('http://localhost:8000/api/deleteProduct/'+ index).pipe(
       tap(() => {
@@ -37,6 +38,35 @@ export class ProductServicesService {
       })
     )
 
+  }
+
+  public aggiungiProdotto(prodotto:Product):Observable<Product>{
+    return this.http.post<Product>('http://localhost:8000/api/aggiungiProdotto',prodotto)
+  }
+
+  public modificaProdotto(prodotto:Product){
+
+    return this.http.put<Product>('http://localhost:8000/api/modificaProdotto',prodotto).pipe(
+      tap(
+        ()=> {
+          
+          this.prodotti.splice(this.getIndex(prodotto),1,prodotto);
+         // console.log(this.prodotti)
+          this.prodottiUpd.next()
+        })
+    )
+  }
+
+  private getIndex(prodotto:Product):number{
+    for(let i=0; i< this.prodotti.length;i++){
+
+      if(prodotto.id == this.prodotti[i].id){
+    
+        return i
+      }
+    }
+
+    return 0;
   }
 
 

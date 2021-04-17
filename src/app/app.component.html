@@ -1,13 +1,17 @@
 <nav [hidden]="getUrl()" class="navbar navbar-extpand-lg navbar-dark bg-dark" style="height: 10vh;">
-  <div class="container">
+  
     <a class="navbar-brand" href="#">Clanmazon</a>
     <ul class="nav nav-pills">
 
       <li class="nav-item">
         <a class="nav-link" routerLink="">Ciao,{{getNomeUtente()}}</a>
+        
+      </li>
+      <li>
+        <a  class="nav-link" routerLink="/home/admin">Home</a>
       </li>
     </ul>
-  </div>
+  
 </nav>
 
 

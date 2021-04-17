@@ -6,6 +6,7 @@ import { Categoria } from '../model/categoria';
 import { Product } from '../model/product';
 import { ProductServicesService } from '../product-services.service';
 import { Subscription } from 'rxjs';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-lisaprodotti',
@@ -18,6 +19,10 @@ export class LisaprodottiComponent implements OnInit {
   categorie: Categoria[]
   messaggio: {msg: string, type: string};
   prodSub: Subscription;
+  product:Product;
+  modificaProd:FormGroup;
+  flag = true;
+
 
 
 
@@ -53,8 +58,6 @@ export class LisaprodottiComponent implements OnInit {
   }
 
   delete(index:number){
-
-
     this.servizioProdotti.eliminaProdotto(index).subscribe(
       (esito: {msg: string})=>{
         this.messaggio = {
@@ -68,13 +71,30 @@ export class LisaprodottiComponent implements OnInit {
         type: 'alert-danger'
       };
     });
+  }
+
+  getClass(){
+    if(this.flag) return "col-12"
+    else return "col-7"
+  }
 
 
-    
+  modifica(prodotto:Product){
 
-    
 
-   
+
+    this.product= prodotto;
+    this.flag = false;
+
+
+    /*this.modificaProd = new FormGroup({
+      nomeProdotto : new FormControl(prodotto.nome,Validators.required),
+      categoria : new FormControl(prodotto.id_categoria,Validators.required),
+      descrizione : new FormControl(prodotto.descrizione,Validators.required),
+      quantita : new FormControl(prodotto.qta,Validators.required),
+      prezzo : new FormControl(prodotto.prezzo,Validators.required),
+      url : new FormControl(prodotto.src)
+    })*/
 
   }
 

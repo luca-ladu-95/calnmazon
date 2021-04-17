@@ -10,7 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { FormRegistrazioneComponent } from './form-registrazione/form-registrazione.component';
 import { HomeadminComponent } from './homeadmin/homeadmin.component';
 import { LisaprodottiComponent } from './lisaprodotti/lisaprodotti.component';
-import { FormnuovoprodottoComponent } from './formnuovoprodotto/formnuovoprodotto.component';
+import { FormNuovoProdottoComponent } from './form-nuovo-prodotto/form-nuovo-prodotto.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,7 @@ import { FormnuovoprodottoComponent } from './formnuovoprodotto/formnuovoprodott
     FormRegistrazioneComponent,
     HomeadminComponent,
     LisaprodottiComponent,
-    FormnuovoprodottoComponent
+    FormNuovoProdottoComponent
   ],
   imports: [
     BrowserModule,

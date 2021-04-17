@@ -6,7 +6,7 @@
 <div>
 
     <div class="row">
-        <div class="col-12">
+        <div [class]="getClass()">
           <table class="table table-bordered">
             <thead>
               <tr>
@@ -28,7 +28,7 @@
                 <td>{{prodotto.src | slice:1:15}}</td>
                 <td>{{getCategoria(prodotto.id_categoria)}}</td>
                 <td>
-                <button type="button" class="btn btn-success"><i class="bi bi-pencil-square"></i></button>
+                <button type="button" (click) = "modifica(prodotto)"class="btn btn-success"><i class="bi bi-pencil-square"></i></button>
                 <button type="button" (click)="delete(prodotto.id)" class="btn btn-danger"><i class="bi bi-trash"></i></button>
 
                
@@ -39,6 +39,66 @@
             </tbody>
           </table>
         </div>
+
+        <div class="col-5 ml-auto" *ngIf="!flag">
+          <app-form-nuovo-prodotto [modProdotto]="product"></app-form-nuovo-prodotto>
+          <!--<form novalidate [formGroup]="modificaProd" >
+
+  
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <label for="nomeProdotto" class="form-label">Nome</label>
+                <input  [ngClass]="{'text-danger border-danger': nomeProdotto.touched && nomeProdotto.invalid}" type="text" class="form-control" id="nomeProdotto" formControlName='nomeProdotto' ngValue="product.nome">
+                <small class="text-danger" *ngIf="nomeProdotto.touched && nomeProdotto.invalid">Il nome è obbligatorio</small>
+              </div>
+        
+              <div class="form-group col-md-12">
+                <label for="categoria" class="form-label">Categoria</label>
+                <input [ngClass]="{'text-danger border-danger': categoria.touched && categoria.invalid}" class="form-control" list="datalistOptions" id="categoria" formControlName='categoria' ngvalue="product.id_categoria">
+                <small class="text-danger" *ngIf="categoria.touched && categoria.invalid">La categoria è obbligatorio</small>
+                <datalist  id="datalistOptions">
+              
+                  <option *ngFor="let cat of categorie" value="{{cat.nome}}">
+                  
+                </datalist>
+              </div>
+            </div>
+        
+            <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="descrizione" class="form-label">Descrizione</label>
+              <textarea  [ngClass]="{'text-danger border-danger': descrizione.touched && descrizione.invalid}" class="form-control" formControlName='descrizione' id="descrizione" rows="4" ngvalue="product.descrizione"></textarea>
+              <small class="text-danger" *ngIf="descrizione.touched && descrizione.invalid">La descrizione è obbligatorio</small>  
+          </div>
+        
+          </div>
+            <div class="form-row">
+            <div class="form-group col-md-2">
+              <label for="quantita">Quantità</label>
+              <input [ngClass]="{'text-danger border-danger': quantita.touched && quantita.invalid}" class="form-control" type="number" formControlName='quantita' class="form-control" id="quantita" ngvalue="product.qta" placeholder="2">
+            </div>
+        
+            <div class="form-group col-md-2">
+              <label for="prezzo">Prezzo</label>
+              <input [ngClass]="{'text-danger border-danger': prezzo.touched && prezzo.invalid}" class="form-control" type="number" formControlName='prezzo' class="form-control" id="prezzo" ngvalue="product.prezzo">
+            </div>
+        
+            <div class="form-group col-md-8">
+              <label for="url">URL</label>
+              <input  class="form-control" type="text" formControlName='url' class="form-control" id="url" ngvalue="product.src">
+            </div>
+          </div>
+          <div class="alert" *ngIf="!!esito" [class]="esito.type">
+              {{esito.msg}}
+            </div>
+             
+            <button [disabled]="prodFor.invalid" type="submit" class="btn btn-success">Aggiungi</button>
+          </form>-->
+
+
+        </div>
+        
+
       </div>
 
       
